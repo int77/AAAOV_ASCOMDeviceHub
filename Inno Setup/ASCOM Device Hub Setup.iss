@@ -16,7 +16,7 @@ AppPublisherURL=mailto:astroman133@gmail.com
 AppSupportURL=https://ascomtalk.groups.io
 AppUpdatesURL=https://ascom-standards.org/
 VersionInfoVersion=1.0.0
-MinVersion=0,5.0.2195sp4
+; MinVersion=0,5.0.2195sp4
 DefaultDirName="{cf}\ASCOM\Telescope"
 DefaultGroupName=ASCOM Device Hub
 DisableDirPage=yes
@@ -30,7 +30,7 @@ WizardImageFile="C:\Program Files (x86)\ASCOM\Platform 6 Developer Components\In
 LicenseFile="C:\Program Files (x86)\ASCOM\Platform 6 Developer Components\Installer Generator\Resources\CreativeCommons.txt"
 ; {cf}\ASCOM\Uninstall\Telescope folder created by Platform, always
 UninstallFilesDir="{cf}\ASCOM\Uninstall\Telescope\{#MyDestSubdirName}"
-SourceDir="D:\My Projects\Visual Studio 2019\ASCOMDeviceHub\DeviceHub\bin\Release"
+SourceDir="C:\Users\Papa\source\repos\AAAOV_ASCOMDeviceHub\DeviceHub\bin\Release"
 
 [Languages]
 Name: "english"; MessagesFile: "compiler:Default.isl"
@@ -47,7 +47,7 @@ Source: "ASCOM.DeviceHub.Dome.dll";       DestDir: "{app}\{#MyDestSubdirName}"; 
 Source: "ASCOM.DeviceHub.Focuser.dll";    DestDir: "{app}\{#MyDestSubdirName}"; Flags: ignoreversion
 Source: "MvvmMessenger.dll";              DestDir: "{app}\{#MyDestSubdirName}"; Flags: ignoreversion
 Source: "PresentationFramework.Aero.dll"; DestDir: "{app}\{#MyDestSubdirName}"; Flags: ignoreversion
-Source: "D:\My Projects\Visual Studio 2019\ASCOMDeviceHub\Documents\ASCOM Device Hub User and Technical Information.pdf"; DestDir: "{app}\{#MyDestSubdirName}";
+Source: "C:\Users\Papa\source\repos\AAAOV_ASCOMDeviceHub\Documents\ASCOM Device Hub User and Technical Information.pdf"; DestDir: "{app}\{#MyDestSubdirName}";
 Source: "ASCOM.DeviceHub.pdb";            DestDir: "{app}\{#MyDestSubdirName}"; Flags: ignoreversion
 Source: "MvvmMessenger.pdb";              DestDir: "{app}\{#MyDestSubdirName}"; Flags: ignoreversion
 
@@ -196,7 +196,7 @@ var
          MsgBox('No ASCOM Platform is installed. Please install Platform ' + Format('%3.1f', [REQUIRED_PLATFORM_VERSION]) + ' or later from http://www.ascom-standards.org', mbCriticalError, MB_OK)
       else 
          MsgBox('ASCOM Platform ' + Format('%3.1f', [REQUIRED_PLATFORM_VERSION]) + ' or later is required, but Platform '+ Format('%3.1f', [PlatformVersionNumber]) + ' is installed. Please install the latest Platform before continuing; you will find it at http://www.ascom-standards.org', mbCriticalError, MB_OK);
-   end
+   end;
    if result = TRUE then 
    begin
       result := FALSE
