@@ -69,7 +69,7 @@ namespace ASCOM.DeviceHub
 				DomeRadius = domeRadius,
 				GemAxisOffset = gemAxisOffset,
 				AzimuthAccuracy = azimuthAccuracy,
-				SlaveInterval = slaveInterval,
+				SlaveInterval = slaveInterval
 			};
 
 			DomeSettings settings = new DomeSettings
