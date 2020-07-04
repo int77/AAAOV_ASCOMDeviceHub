@@ -95,10 +95,7 @@
                     <TextBlock Grid.Row="1" Grid.Column="2" Style="{StaticResource BlockStyle}" HorizontalAlignment="Right" TextAlignment="Right" Margin="0,3" Height="32" Width="128" RenderTransformOrigin="0.52,0.502"><Run Text="GEM Axis" /><LineBreak /><Run Text="Offset (mm):" /></TextBlock>
                     <TextBlock Grid.Row="1" Grid.Column="3" Height="20" Width="63" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="6,9,0,9" 
 							   FontSize="16" ToolTip="Click the value to edit"><Hyperlink  Command="{Binding EditGemAxisOffsetCommand}"><Run Text="{Binding GemAxisOffset, FallbackValue=No value}" /></Hyperlink></TextBlock>
-                    <TextBlock Grid.Column="2" HorizontalAlignment="Left" Margin="30,9,0,0" Grid.Row="2" Text="FindHome at startup:" VerticalAlignment="Top" RenderTransformOrigin="0.729,0.403" Width="116"/>
-                    <CheckBox Grid.Row="2" Grid.Column="3" Margin="10,10,21,9" Content="" Foreground="{DynamicResource NormalTextBrush}" 
-							  ToolTip="Run FindHome command at startup"
-							  IsChecked="{Binding FindHomeAtStartup}" RenderTransformOrigin="0.531,0.69" />
+
 
                 </Grid>
             </GroupBox>

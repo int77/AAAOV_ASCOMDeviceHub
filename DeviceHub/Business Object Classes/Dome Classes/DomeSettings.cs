@@ -26,6 +26,8 @@ namespace ASCOM.DeviceHub
 		private const string _slaveIntervalDefault = "30";
 		private const string _usePOTHSlavingCalculationProfileName = "Use POTH Slaving Calculation";
 		private const string _usePOTHSlavingCalculationDefault = "false";
+		private const string _FindHomeAtStartupProfileName = "Run FindHome at startup";
+		private const string _FindHomeAtStartupDefault = "false";
 
 		private static string DriverID => Globals.DevHubDomeID;
 
@@ -42,6 +44,7 @@ namespace ASCOM.DeviceHub
 			int slaveInterval;
 			bool loggerEnabled;
 			bool usePOTHCalculation;
+			bool FindHomeAtStartup;
 
 			using ( Profile profile = new Profile() )
 			{
@@ -57,6 +60,7 @@ namespace ASCOM.DeviceHub
 				slaveInterval = Convert.ToInt32( profile.GetValue( DriverID, _slaveIntervalProfileName, String.Empty, _slaveIntervalDefault ) );
 				loggerEnabled = Convert.ToBoolean( profile.GetValue( DriverID, _traceStateProfileName, String.Empty, _traceStateDefault ) );
 				usePOTHCalculation = Convert.ToBoolean( profile.GetValue( DriverID, _usePOTHSlavingCalculationProfileName, String.Empty, _usePOTHSlavingCalculationDefault ) );
+				FindHomeAtStartup = Convert.ToBoolean( profile.GetValue( DriverID, _FindHomeAtStartupProfileName, String.Empty, _FindHomeAtStartupDefault ) );
 			}
 
 			DomeLayoutSettings layoutSettings = new DomeLayoutSettings
@@ -65,7 +69,7 @@ namespace ASCOM.DeviceHub
 				DomeRadius = domeRadius,
 				GemAxisOffset = gemAxisOffset,
 				AzimuthAccuracy = azimuthAccuracy,
-				SlaveInterval = slaveInterval
+				SlaveInterval = slaveInterval,
 			};
 
 			DomeSettings settings = new DomeSettings
@@ -74,6 +78,7 @@ namespace ASCOM.DeviceHub
 				DomeLayout = layoutSettings,
 				AzimuthAdjustment = azimuthAdjustment,
 				UsePOTHDomeSlaveCalculation = usePOTHCalculation,
+				FindDomeHomeAtStartup = FindHomeAtStartup,
 				IsLoggingEnabled = loggerEnabled
 			};
 
@@ -88,6 +93,7 @@ namespace ASCOM.DeviceHub
 		public bool IsLoggingEnabled { get; set; }
 		public double AzimuthAdjustment { get; set; }
 		public bool UsePOTHDomeSlaveCalculation { get; set; }
+		public bool FindDomeHomeAtStartup { get; set; }
 
 		public void ToProfile()
 		{
@@ -105,6 +111,7 @@ namespace ASCOM.DeviceHub
 				profile.WriteValue( DriverID, _slaveIntervalProfileName, DomeLayout.SlaveInterval.ToString() );
 				profile.WriteValue( DriverID, _traceStateProfileName, IsLoggingEnabled.ToString() );
 				profile.WriteValue( DriverID, _usePOTHSlavingCalculationProfileName, UsePOTHDomeSlaveCalculation.ToString() );
+				profile.WriteValue( DriverID, _FindHomeAtStartupProfileName, FindDomeHomeAtStartup.ToString() );
 			}
 		}
 	}

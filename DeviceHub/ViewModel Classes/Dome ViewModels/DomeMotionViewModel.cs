@@ -163,6 +163,19 @@ namespace ASCOM.DeviceHub
 			}
 		}
 
+		public bool FindHomeAtStartup
+		{
+			get { return Globals.FindDomeHomeAtStartup; }
+			set
+			{
+				if (value != Globals.FindDomeHomeAtStartup)
+				{
+					Globals.FindDomeHomeAtStartup = value;
+					OnPropertyChanged();
+				}
+			}
+		}
+
 		public double DomeAzimuthAdjustment
 		{
 			get { return Globals.DomeAzimuthAdjustment; }
@@ -382,8 +395,9 @@ namespace ASCOM.DeviceHub
 
 			if ( Status != null && Status.Connected && Capabilities != null && !IsSlaved && !Status.Slewing)
 			{
-				if ( Capabilities.CanPark && !Status.AtPark )
-				{
+				//if ( Capabilities.CanPark && !Status.AtPark )
+				if (Capabilities.CanPark)
+					{
 					retval = true;
 				}
 			}

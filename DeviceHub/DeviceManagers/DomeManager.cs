@@ -236,6 +236,14 @@ namespace ASCOM.DeviceHub
 				retval = Connected;
 			}
 
+			if (Globals.FindDomeHomeAtStartup)
+			{
+				if (Connected && Capabilities != null && Capabilities.CanFindHome && !Slewing)
+				{
+					Task.Run(() => FindHomeTask());
+				}
+			}
+
 			return retval;
 		}
 

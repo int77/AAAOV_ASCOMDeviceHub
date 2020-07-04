@@ -361,7 +361,7 @@ namespace ASCOM.DeviceHub
 			Globals.DomeLayout = domeSettings.DomeLayout;
 			Globals.DomeAzimuthAdjustment = domeSettings.AzimuthAdjustment;
 			Globals.UsePOTHDomeSlaveCalculation = domeSettings.UsePOTHDomeSlaveCalculation;
-
+			Globals.FindDomeHomeAtStartup = domeSettings.FindDomeHomeAtStartup;
 			FocuserSettings focuserSettings = FocuserSettings.FromProfile();
 			FocuserManager.SetFocuserID( focuserSettings.FocuserID );
 			Globals.FocuserTemperatureOffset = focuserSettings.TemperatureOffset;
@@ -372,6 +372,7 @@ namespace ASCOM.DeviceHub
 			DomeSettings domeSettings = DomeSettings.FromProfile();
 			domeSettings.AzimuthAdjustment = Globals.DomeAzimuthAdjustment;
 			domeSettings.UsePOTHDomeSlaveCalculation = Globals.UsePOTHDomeSlaveCalculation;
+			domeSettings.FindDomeHomeAtStartup = Globals.FindDomeHomeAtStartup;
 			domeSettings.ToProfile();
 		}
 
